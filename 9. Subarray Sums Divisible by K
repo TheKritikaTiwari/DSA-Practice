@@ -1,0 +1,26 @@
+class Solution {
+    public int subarraysDivByK(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+        int a = 0, s = 0;
+        for (int x : nums) {
+            s = ((s + x) % k + k) % k;
+            a += map.getOrDefault(s, 0);
+            map.merge(s, 1, Integer::sum);
+        }
+        return a;
+
+        // Brute Force
+        // int c=0;
+        // for(int i=0;i<nums.length;i++){
+        //     int s=0;
+        //     for(int j=i;j<nums.length;j++){
+        //         s=s+nums[j];
+        //         if(s % k == 0){
+        //             c++;
+        //         }
+        //     }
+        // }
+        // return c;
+    }
+}
