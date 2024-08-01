@@ -3,15 +3,15 @@ class Solution {
         int start=0, end= height.length-1;
         int result=0, temp=0;
         while(start<end){
-            temp=Math.min(height[start],height[end]);  //0, 1, 7, 3, 8, 4, 5, 2, 6
+            temp=Math.min(height[start],height[end]);  
             
-            result=Math.max(result,temp*(end-start));  //0, 8, 49, 49, 49, 49, 49, 49, 49
+            result=Math.max(result,temp*(end-start));  
             
             if(height[start]<height[end]){
-                start++;   //0, 1, 1, 1, 1, 1, 1, 1
+                start++;   
             }
             else{
-                end--;    //8, 8, 7, 6, 5, 4, 3, 2
+                end--;    
             }
            
         }
