@@ -13,15 +13,12 @@ class Solution {
         if(head==null||head.next==null){
             return head;
         }
-        HashSet<Integer> set=new HashSet<>();
         ListNode dhead = head;
-        set.add(dhead.val);
         while(dhead.next!=null){
-            if(set.contains(dhead.next.val)){
+            if(dhead.val==dhead.next.val){
                 dhead.next=dhead.next.next;
             }
             else{
-                set.add(dhead.next.val);
                 dhead = dhead.next;
             }
         }
